@@ -33,7 +33,7 @@ function ctslider_register_slides_posttype() {
 		'not_found' 		=> __( 'No Slides Found', 'ctslider' ),
 		'not_found_in_trash'=> __( 'No Slides Found In Trash', 'ctslider' ),
 		'parent_item_colon' => __( 'Parent Slide', 'ctslider' ),
-		'menu_name'			=> __( 'All Slides', 'ctslider' )
+		'menu_name'			=> __( 'Captain Slider', 'ctslider' )
 	);
 
 	$taxonomies = array();
@@ -52,7 +52,7 @@ function ctslider_register_slides_posttype() {
 		'hierarchical' 		=> false,
 		'rewrite' 			=> array( 'slug' => 'slides', 'with_front' => false ),
 		'supports' 			=> $supports,
-		'menu_position' 	=> 28,
+		'menu_position' 	=> 60,
 		'menu_icon' 		=> CTSLIDER_PLUGIN_URL . 'assets/images/icon.png',
 		'taxonomies'		=> $taxonomies
 	);
@@ -60,17 +60,3 @@ function ctslider_register_slides_posttype() {
 	 register_post_type( 'slides', $post_type_args );
 }
 add_action( 'init', 'ctslider_register_slides_posttype' );
-
-
-/**
- * Rename Slider Admin Menu Title
- *
- * @access      private
- * @since       1.0.0
- * @return      void
- */
-function ctslider_edit_admin_menus() {
-	global $menu, $submenu;
-	$menu[28][0] = 'Captain Slider';
-}
-add_action( 'admin_menu', 'ctslider_edit_admin_menus' );
